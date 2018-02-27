@@ -1,0 +1,188 @@
+#!/usr/bin/nodejs
+
+function prefixNum( num, arr ) {
+	for ( var i=0; i< arr.length; i++ ) {
+		arr[i] = String(num) + '+' +  arr[i];
+	}
+}
+function postfixNum( num, arr ) {
+	for ( var i=0; i< arr.length; i++ ) {
+		arr[i] =  arr[i] + '+' + String(num);
+	}
+}
+
+function pushAll( arr, list ) {
+	for ( var i=0; i<list.length; i++ ) {
+		arr.push( list[i] );
+	}
+}
+
+function __countSpecificNum( str, n ) {
+	var arr = str.split( "+" );
+	var count = 0;
+	n = String(n);
+	for ( var i=0;i<arr.length; i++ ) {
+		if ( arr[i] == n ) {
+			count++;
+		}
+	}
+	return count;
+}
+function countSpecificNum() {
+	var args = Array.prototype.slice.call( arguments );
+	var str = args.shift();
+	var count =0;
+	for ( var i=0; i<args.length; i++ ) {
+		count += __countSpecificNum( str, args[i] );
+	}
+	return count;
+}
+
+function search( n ) {
+	var result = [];
+	__search( n,n,result );
+	return result;
+}
+
+function __search( m, n, result ) {
+	if ( n < 1 ) {
+		return;
+	}
+
+	for ( var i=n; 0<i; i-- ) {
+		var ii = n - i;
+
+		if ( i <= m ) {
+			if ( i == n ) {
+				result.push( String( n ) );
+			} else {
+				var result2 = [];
+				__search( i, ii, result2 );
+				prefixNum( i, result2 );
+				pushAll( result, result2 );
+			}
+		}
+
+	}
+	return;
+}
+
+function filterLines( arr, fn ) {
+	var result = [];
+	for ( var i=0; i<arr.length; i++ ) {
+		if  ( fn( arr[i] ) ) {
+			result.push( arr[i] );
+		}
+	}
+	return result;
+}
+
+function permutate( arr, result ) {
+	if ( arr.length == 1 ) {
+		result.push( arr.slice() );
+		return;
+	}
+	if ( arr.length == 0 ) {
+		return;
+	}
+	for ( var i=0; i<arr.length; i++ ) {
+		var curr = arr.slice();
+		var pickedup = curr.splice( i, 1 );
+		var sub_result  = [];
+		permutate( curr, sub_result  );
+
+		for ( var j=0; j<sub_result.length; j++ ) {
+			result.push( pickedup.concat( sub_result [j] ) ) ;
+		}
+	}
+}
+
+function permutateS( str, result ) {
+	var r=[];
+	permutate( str.split( "+" ), r );
+	for ( var i=0; i<r.length; i++ ) {
+		result.push( r[i].join( "+" ) );
+	}
+}
+
+
+function unique( arr ) {
+	var result = [];
+	var last = null;
+
+	for ( var i=0; i<arr.length; i++ ) {
+		if ( arr[i] == last ) {
+		} else {
+			result.push( arr[i] );
+			last=arr[i];
+		}
+	}
+	return result;
+
+}
+
+function commandInterface() {
+	var args = Array.prototype.slice.apply( process.argv );
+	args.shift();
+	args.shift();
+
+	var num = args.shift() || "10" ;
+	if ( ! Number( num ) ) {
+		throw new Error( num + " is not number" );
+	}
+	num =  Number( num );
+
+	var minNum = args.shift() || "2" ;
+	if ( ! Number( minNum ) ) {
+		throw new Error( minNum + " is not number" );
+	}
+	minNum =  Number( minNum );
+
+	var filterFunc = 
+		function( line ) {
+			return (
+				true
+				&& countSpecificNum( line, 1 ) < 1
+				// && countSpecificNum( line, 2 ) < 1
+			);
+		};
+
+	var arr = search( num );
+
+	arr = filterLines( arr, filterFunc );
+
+	// for ( var i=0; i<arr.length; i++ ) {
+	// 	console.log( arr[i] );
+	// }
+
+	var r = [];
+	for ( var i=0; i< arr.length; i++ ) {
+		permutateS( arr[i] , r );
+	}
+
+	r.sort();
+	r = unique( r ) ;
+	r.reverse();
+
+	for ( var i=0; i<r.length; i++ ) {
+		console.log( r[i] );
+	}
+
+
+	// for ( var i=0; i<arr.length; i++ ) {
+	// // 	if ( 0 < countSpecificNum( arr[i], 1 ) || 1 < countSpecificNum( arr[i], 2 ) )
+	// // 	if ( 0 < countSpecificNum( arr[i], 1 )  )
+	// // 		;
+	// // 	else
+	// //		console.log( arr[i] );
+
+	// 	if ( 1 < countSpecificNum( arr[i], 1 )  )
+	// 		;
+	// 	else
+	// 		console.log( arr[i] );
+	// }
+}
+
+commandInterface();
+
+// vim: filetype=javascript:
