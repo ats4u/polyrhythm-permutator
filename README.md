@@ -12,7 +12,7 @@ they are interchangeable without changing their length of measure.
 
 https://youtu.be/62p-CXrYmf4
 
-Footprints is famous jazz composing of Wayne Shorter. In Miles Davis's album
+Footprints is a famous jazz composing of Wayne Shorter. In Miles Davis's album
 Miles Simles, the tune is played in the same manner. It starts three time with
 four tuplets; then it changes to four time with three tuplets.
 
