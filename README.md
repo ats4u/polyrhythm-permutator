@@ -44,7 +44,7 @@ can divide a group of pulses asynmetric.
 ```
 
 My question is that when a number of pulses are specified, how many pattern 
-can it be devided into.
+it can be devided into.
 
 Define a function which returns a number of patterns by a number of pulses as
 
@@ -126,6 +126,35 @@ generates
 1+2+4
 1+2+2+2
 ```
+
+
+Commands
+==========
+
+```
+./polyrhythms [number]
+```
+Permutate all possible pattern within a specified number of pulses.
+
+
+```
+./calc.sh [number]
+```
+Execute ./polyrhythms with arguments from 1 to [number].
+Each result of executing ./polyrhythms are printed per line.
+
+
+```
+./count.sh [number]
+```
+Execute ./polyrhythms with arguments from 1 to [number], and then display only
+number of lines of their actual result.
+
+
+```
+./rand.sh [number]
+```
+Execute ./polyrhythms with [number], and then randomly show one of the lines;
 
 
 
