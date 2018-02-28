@@ -142,7 +142,7 @@ function commandInterface() {
 		function( line ) {
 			return (
 				true
-				&& countSpecificNum( line, 1 ) < 1
+				&& countSpecificNum( line, 1 ) < 2
 				// && countSpecificNum( line, 2 ) < 1
 			);
 		};
