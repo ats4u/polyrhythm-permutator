@@ -10,6 +10,17 @@ twelve pulses.
 When a rhythm pattern has a same number of pulses with another rhythm pattern,
 they are interchangeable without changing their length of measure.
 
+https://youtu.be/62p-CXrYmf4
+
+Footprints is famous jazz composing of Wayne Shorter. In Miles Davis's album
+Miles Simles, the tune is played in the same manner. It starts three time with
+four tuplets; then it changes to four time with three tuplets.
+
+Any musical time can be broken down to smaller segments of pulses.
+
+
+Chris Coleman a drummer of famous church music also mentions about this :
+
 https://youtu.be/Awm3sqre-IE?t=37s
 
 > ... and one key thing he said to me was any time can always be broken down
