@@ -95,7 +95,7 @@ musically different. That means all elements should be permutated.
 1+2+2
 ```
 
-The command program `polyrhythms` enumerate all the patterns as same mannar described above.
+The command program `polyrhythms` enumerates all the patterns as same mannar described above.
 
 > ./polyrhythms 7
 
