@@ -12,7 +12,7 @@ they are interchangeable without changing their length of measure.
 
 https://youtu.be/62p-CXrYmf4
 
-Footprints is a famous jazz composing of Wayne Shorter. In Miles Davis's album
+"Footprints" is a famous jazz composing of Wayne Shorter. In Miles Davis's album
 Miles Simles, the tune is played in the same manner. It starts three time with
 four tuplets; then it changes to four time with three tuplets.
 
@@ -55,7 +55,7 @@ patterns = f(pulses)
 This function might be defined recursively.
 
 ```
-f(pulses)  = pulses + f(pulses-1)
+f(pulses)  = (1) + f(pulses-1) , (2) + f(pulses-2) , ... , (pulses-1) + f(1)
 ```
 
 For example, f(5) generates
@@ -95,7 +95,7 @@ musically different. That means all elements should be permutated.
 1+2+2
 ```
 
-The command program `polyrhythms` is made for that purpos.
+The command program `polyrhythms` enumerate all the patterns as same mannar described above.
 
 > ./polyrhythms 7
 
